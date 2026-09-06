@@ -127,4 +127,24 @@ footer {
   padding: 2rem;
   color: #888;
   font-size: 0.9rem;
+}/* 시계 상자 디자인 */
+.clock-box {
+  background-color: #212529;
+  color: #00ffcc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+
+#live-clock {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#d-day-count {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  margin-top: 0.3rem;
 }
