@@ -147,4 +147,7 @@ footer {
   font-size: 0.85rem;
   color: #a0aec0;
   margin-top: 0.3rem;
+}/* 외부 연동 뱃지 색상 (파란색 계열) */
+.card-badge.external {
+  background-color: #17a2b8;
 }
