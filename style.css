@@ -168,4 +168,38 @@ footer {
 .theme-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+}/* ==========================================
+   🌙 다크 모드 스타일
+   ========================================== */
+
+/* 1. 다크 모드일 때 전체 배경 및 글자색 */
+body.dark-mode {
+  background: #121212 !important; /* 기존 배경 그라데이션을 덮어쓰기 위해 !important 사용 */
+  color: #e0e0e0;
+}
+
+/* 2. 다크 모드일 때 메인 헤더 영역 배경 */
+body.dark-mode .header {
+  background: #1e1e1e !important;
+}
+
+/* 3. 다크 모드일 때 프로필 카드 및 프로젝트 카드 배경 */
+body.dark-mode .card,
+body.dark-mode .project-card {
+  background-color: #242424;
+  color: #ffffff;
+  border-color: #333333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. 다크 모드일 때 설명 글자색 */
+body.dark-mode .project-card p,
+body.dark-mode .profile-card p {
+  color: #bbb;
+}
+
+/* 5. 다크 모드일 때 태그/뱃지 배경 */
+body.dark-mode .tag {
+  background-color: #333;
+  color: #00ffcc;
 }
