@@ -12,21 +12,44 @@ function updateClock() {
   }
 }
 
-// 2. D-Day 계산 기능
-function updateDDay() {
-  const now = new Date();
-  const targetDate = new Date('2026-12-31T23:59:59');
-  
-  const diff = targetDate - now;
-  const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
+// 2. 커스텀 D-Day 계산 기능
+const dateInput = document.getElementById('target-date-input');
+const dDayElement = document.getElementById('d-day-count');
 
-  const dDayElement = document.getElementById('d-day-count');
-  if (dDayElement) {
-    dDayElement.innerText = `2026년 연말까지 D-${daysLeft}일`;
+function calculateDDay() {
+  if (!dateInput || !dDayElement) return;
+
+  const selectedDateValue = dateInput.value;
+  
+  if (!selectedDateValue) {
+    dDayElement.innerText = "목표 날짜를 선택하세요";
+    return;
+  }
+
+  const now = new Date();
+  const targetDate = new Date(selectedDateValue);
+  
+  // 시간 단위를 맞추기 위해 오늘 날짜의 시/분/초를 0으로 초기화
+  now.setHours(0, 0, 0, 0);
+
+  const diffTime = targetDate - now;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays > 0) {
+    dDayElement.innerText = `목표일까지 D-${diffDays}일`;
+  } else if (diffDays === 0) {
+    dDayElement.innerText = `🔥 오늘이 D-Day입니다!`;
+  } else {
+    dDayElement.innerText = `지나간 날짜입니다 (D+${Math.abs(diffDays)}일)`;
   }
 }
 
-// 3. 다크 모드 토글 기능 (수정완료)
+// 날짜 선택 창의 값이 바뀔 때마다 D-Day 재계산
+if (dateInput) {
+  dateInput.addEventListener('change', calculateDDay);
+}
+
+// 3. 다크 모드 토글 기능
 const themeToggleBtn = document.getElementById('theme-toggle');
 
 if (themeToggleBtn) {
@@ -43,5 +66,4 @@ if (themeToggleBtn) {
 
 // 4. 초기 실행 및 1초 주기 타이머
 updateClock();
-updateDDay();
 setInterval(updateClock, 1000);
