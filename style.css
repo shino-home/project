@@ -10,6 +10,7 @@ body {
   background-color: #f4f6f9;
   color: #333;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 헤더 디자인 */
@@ -94,6 +95,11 @@ body {
   background-color: #6c757d;
 }
 
+/* 외부 연동 뱃지 색상 (누락되었던 닫는 괄호 수정 완료) */
+.card-badge.external {
+  background-color: #17a2b8;
+}
+
 .project-card h3 {
   margin-bottom: 0.5rem;
 }
@@ -127,7 +133,9 @@ footer {
   padding: 2rem;
   color: #888;
   font-size: 0.9rem;
-}/* 시계 상자 디자인 */
+}
+
+/* 시계 상자 디자인 */
 .clock-box {
   background-color: #212529;
   color: #00ffcc;
@@ -147,10 +155,9 @@ footer {
   font-size: 0.85rem;
   color: #a0aec0;
   margin-top: 0.3rem;
-}/* 외부 연동 뱃지 색상 (파란색 계열) */
-.card-badge.external {
-  background-color: #17a2b8;
-/* 다크 모드 토글 버튼 예쁜 디자인 */
+}
+
+/* 다크 모드 토글 버튼 디자인 */
 .theme-btn {
   margin-top: 1.2rem;
   background: rgba(255, 255, 255, 0.15);
@@ -168,69 +175,36 @@ footer {
 .theme-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
-}/* ==========================================
-   🌙 다크 모드 스타일
+}
+
+/* ==========================================
+   🌙 다크 모드 전용 스타일
    ========================================== */
 
-/* 1. 다크 모드일 때 전체 배경 및 글자색 */
 body.dark-mode {
-  background: #121212 !important; /* 기존 배경 그라데이션을 덮어쓰기 위해 !important 사용 */
-  color: #e0e0e0;
+  background-color: #121212 !important;
+  color: #ffffff !important;
 }
 
-/* 2. 다크 모드일 때 메인 헤더 영역 배경 */
 body.dark-mode .header {
-  background: #1e1e1e !important;
+  background: #1f1f1f !important;
 }
 
-/* 3. 다크 모드일 때 프로필 카드 및 프로젝트 카드 배경 */
 body.dark-mode .card,
 body.dark-mode .project-card {
-  background-color: #242424;
-  color: #ffffff;
-  border-color: #333333;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #444444;
 }
 
-/* 4. 다크 모드일 때 설명 글자색 */
-body.dark-mode .project-card p,
-body.dark-mode .profile-card p {
-  color: #bbb;
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #ffffff !important;
 }
 
-/* 5. 다크 모드일 때 태그/뱃지 배경 */
 body.dark-mode .tag {
   background-color: #333;
   color: #00ffcc;
-}/* ==========================================
-   🌙 다크 모드 최고 우선순위 스타일
-   ========================================== */
-
-/* 1. 바디 전체 배경 및 글자색 강제 변경 */
-html body.dark-mode {
-  background-color: #121212 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-}
-
-/* 2. 헤더 상단 배너 배경 어둡게 */
-html body.dark-mode .header {
-  background: #1f1f1f !important;
-  color: #ffffff !important;
-}
-
-/* 3. 흰색 카드 상자들을 어두운 회색 상자로 변경 */
-html body.dark-mode .card,
-html body.dark-mode .project-card {
-  background-color: #2a2a2a !important;
-  color: #ffffff !important;
-  border: 1px solid #444444 !important;
-}
-
-/* 4. 카드 안의 본문 글자색 변경 */
-html body.dark-mode p,
-html body.dark-mode h1,
-html body.dark-mode h2,
-html body.dark-mode h3 {
-  color: #ffffff !important;
 }
